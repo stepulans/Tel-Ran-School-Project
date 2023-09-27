@@ -1,0 +1,88 @@
+nav{
+    margin: 0 auto;
+    max-width: 1440px;
+}
+.navContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1384px;
+    margin: 19px 28px 76px 28px;
+}
+.logoIcon{
+    width: 72px;
+    height: 72px;
+}
+.cartIcon{
+    height: 30px;
+    width: 30px;
+}
+.navbar{
+    gap: 15px;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    z-index: 1;
+    display: none;
+    background-color: rgba(73, 2, 70, 0.342);
+    border-radius: 16px;
+}
+.navbar_mobile{
+    display: none;
+}
+.navbar_links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 31px;
+    padding-left: 500px;
+}
+.navbar_links h3{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+    color: black;
+    cursor: pointer;
+}
+.firstH3{
+    margin-right: 18px;
+}
+.catalogBtn{
+    padding: 15px 30px;
+    gap: 5px;
+    border: 2px solid #393;
+    background: #393;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    width: 125px;
+    height: 49px;
+    cursor: pointer;
+}
+.logoDiv{
+    gap: 59px;
+    display: flex;
+    align-items: center;
+}
+.cartBtn{
+    cursor: pointer;
+    position: relative;
+}
+.cartProductCount{
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    background-color: #393;
+    position: absolute;
+    left: 6px;
+    bottom: 5px;
+    width: 18px;
+    height: 18px;
+}

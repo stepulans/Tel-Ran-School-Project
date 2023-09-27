@@ -1,0 +1,13 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 130%;
+}
+a{
+    text-decoration: none;
+}
+.map{
+    margin: 38px 46px;
+}
