@@ -4,11 +4,9 @@ nav{
 }
 .navContainer{
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    max-width: 1384px;
-    margin: 19px 28px 76px 28px;
+    margin: 20px 28px;
 }
 .logoIcon{
     width: 72px;
@@ -35,37 +33,31 @@ nav{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 31px;
-    padding-left: 500px;
+    gap: 40px;
 }
-.navbar_links h3{
+.navbar_links li{
     font-size: 16px;
     font-weight: 500;
     line-height: 130%;
     color: black;
     cursor: pointer;
-}
-.firstH3{
-    margin-right: 18px;
+    list-style: none;
 }
 .catalogBtn{
     padding: 15px 30px;
-    gap: 5px;
     border: 2px solid #393;
     background: #393;
     border-radius: 5px;
     color: rgba(255, 255, 255, 1);
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    width: 125px;
-    height: 49px;
     cursor: pointer;
 }
 .logoDiv{
-    gap: 59px;
+    gap: 60px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .cartBtn{
     cursor: pointer;
@@ -81,8 +73,15 @@ nav{
     color: white;
     background-color: #393;
     position: absolute;
-    left: 6px;
-    bottom: 5px;
+    right: -5px;
+    top: 0;
     width: 18px;
     height: 18px;
+}
+.navbar_right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 430px;
+    width: 100%;
 }

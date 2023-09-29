@@ -1,0 +1,5 @@
+.productListContainer{
+    display: flex;
+    gap: 34px;
+    flex-wrap: wrap;
+}

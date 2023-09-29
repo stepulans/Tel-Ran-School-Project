@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: #A1E2EB;
+    margin-top: 76px;
 }
 .salesInfo{
     display: flex;

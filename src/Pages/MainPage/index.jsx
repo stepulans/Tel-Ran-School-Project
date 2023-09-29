@@ -1,10 +1,15 @@
 import s from './MainPage.module.css'
-import SaleBanner from './components/SaleBanner'
+import Catalog from './components/Catalog'
+import DiscountBanner from './components/DicountBanner'
+import HomePageSale from './components/HomePageSale'
+
 
 function MainPage(){
     return(
         <div className={s.mainPage}>
-            <SaleBanner/>
+            <Catalog/>
+            <DiscountBanner/>
+            <HomePageSale/>
         </div>
     )
 }

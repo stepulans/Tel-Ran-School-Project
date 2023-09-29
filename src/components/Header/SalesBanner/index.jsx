@@ -1,4 +1,4 @@
-import s from './SaleBaner.module.css'
+import s from './SaleBannner.module.css'
 
 function SaleBanner(){
     return(
