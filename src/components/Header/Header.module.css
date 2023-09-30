@@ -6,11 +6,12 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 28px;
+    margin: 20px 28px 100px 28px;
 }
 .logoIcon{
     width: 72px;
     height: 72px;
+    cursor: pointer;
 }
 .cartIcon{
     height: 30px;

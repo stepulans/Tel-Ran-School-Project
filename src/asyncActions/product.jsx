@@ -8,3 +8,4 @@ export function fetchProducts(){
             .then(data => dispatch(ADD_PRODUCT_LIST(data)))
     }
 }
+

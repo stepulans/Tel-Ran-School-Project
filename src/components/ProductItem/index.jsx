@@ -5,7 +5,7 @@ function ProductItem({elem}){
     const imageURL = baseUrl + elem.image
 
     const discount = elem.discont_price && elem.price
-    ? (((elem.price - elem.discont_price) / elem.price) * 100).toFixed(2)
+    ? Math.round(((elem.price - elem.discont_price) / elem.price) * 100 * 100) / 100
     : null;
 
     return (
@@ -21,7 +21,7 @@ function ProductItem({elem}){
                     <p className={s.priceWithoutDiscount}>{elem.price}$</p>
                 )}
                 {discount && (
-                    <p className={s.discount}>{discount}%</p>
+                    <p className={s.discount}>-{discount}%</p>
                 )}
             </div>
             <p className={s.productItemTitle}>{elem.title}</p>

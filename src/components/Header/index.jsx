@@ -15,8 +15,9 @@ function Header(){
         <nav>
             <div className={s.navContainer}>
                 <div className={s.logoDiv}>
-                    <img className={s.logoIcon} src="./assets/logo.png" alt="logo" />
-                    <button className={s.catalogBtn}>Catalog</button>
+                    <Link to={'/'}><img className={s.logoIcon} src="./assets/logo.png" alt="logo" /></Link>
+                    <Link to={'/categories'}><button className={s.catalogBtn}>Catalog</button></Link>
+                    
                 </div>
             
                 <div className={s.navbar_right}>
