@@ -4,6 +4,7 @@ import s from './CategoryList.module.css'
 import { fetchCategory } from '../../asyncActions/category'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function CategoryList(){
     let categoryList = useSelector((store) => store.categoryList)
@@ -17,11 +18,15 @@ function CategoryList(){
     return(
         <div className={s.categoryListContainer}>
             {!isCategories
-                ? categoryList.map(elem => (
-              <CategoryItem key={elem.id} elem={elem} />
-                )).slice(0, 4)
+                ? categoryList.slice(0, 4).map(elem => (
+                <Link key={elem.id} to={`/category/${elem.id}`}>
+                    <CategoryItem key={elem.id} elem={elem} />
+                </Link>
+                ))
             : categoryList.map(elem => (
-              <CategoryItem key={elem.id} elem={elem} />
+                <Link key={elem.id} to={`/category/${elem.id}`}>
+                    <CategoryItem key={elem.id} elem={elem} />
+                </Link>
                 ))}
             
         </div>

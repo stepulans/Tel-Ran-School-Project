@@ -3,11 +3,33 @@
     flex-direction: column;
     gap: 10px;
 }
+.productImgContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
 .productItemImg{
     width: 300px;
     height: 300px;
     border-radius: 15px;
     cursor: pointer;
+}
+.productBtn{
+    border: 2px solid #393;
+    border-radius: 21px;
+    color: #393;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 25px 88px;
+    height: 72px;
+    position: absolute;
+    bottom: 32px;
+    left: 10px;
+    display: none;
+    cursor: pointer;
+}
+.productImgContainer:hover .productBtn {
+    display: block;
 }
 .priceDiv{
     display: flex;

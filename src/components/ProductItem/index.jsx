@@ -10,7 +10,11 @@ function ProductItem({elem}){
 
     return (
         <div className={s.productItem}>
-            <img className={s.productItemImg} src={imageURL} alt="product-img" />
+            <div className={s.productImgContainer}>
+                <img className={s.productItemImg} src={imageURL} alt="product-img" />
+                <button className={s.productBtn}>Add to cart</button>
+            </div>
+            
             <div className={s.priceDiv}>
                 {elem.discont_price && (
                     <p className={s.actualPrice}>{elem.discont_price}$</p>
