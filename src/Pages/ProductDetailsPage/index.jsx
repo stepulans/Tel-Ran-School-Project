@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import s from './ProductDetailsPage.module.css'
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCartAction } from '../../store/cartReducer';
 
 function ProductDetailsPage(){
     const {id} = useParams()
@@ -17,7 +19,7 @@ function ProductDetailsPage(){
     const discount = product.discont_price && product.price
     ? Math.round(((product.price - product.discont_price) / product.price) * 100 * 100) / 100
     : null;
-
+    const dispatch = useDispatch()
     return(
         <div className={s.productDetails}>
             <h2 className={s.productDetailsTitle}>{product.title}</h2>
@@ -37,7 +39,7 @@ function ProductDetailsPage(){
                             <p className={s.discount}>-{discount}%</p>
                         )}
                     </div>
-                    <button className={s.productDetailsBtn}>To cart</button>
+                    <button onClick={() => dispatch(addToCartAction(product.id, product))} className={s.productDetailsBtn}>To cart</button>
                     <div className={s.underline}></div>
                     <div className={s.productdetailsDescription}>
                         <h3 className={s.productdetailsDescriptionH3}>Description</h3>

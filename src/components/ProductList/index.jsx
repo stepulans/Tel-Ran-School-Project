@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import { fetchDiscountedProducts, fetchProducts } from '../../asyncActions/product'
 import ProductItem from '../ProductItem'
 import { useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 
 function ProductList({showDiscounted, minPrice, maxPrice, sortOption}){
     let productList = useSelector((store) => store.productList)
@@ -62,15 +61,9 @@ function ProductList({showDiscounted, minPrice, maxPrice, sortOption}){
         <div className={s.productListContainer}>
             {isMainPage
                 ? filteredProducts.slice(0, 3).map(elem => (
-                    <Link key={elem.id} to={`/productdetails/${elem.id}`}>
-                        <ProductItem key={elem.id} elem={elem} />
-                    </Link>
-                    ))
+                        <ProductItem key={elem.id} elem={elem} />))
                 : filteredProducts.map(elem => (
-                    <Link key={elem.id} to={`/productdetails/${elem.id}`}>
-                        <ProductItem key={elem.id} elem={elem} />
-                    </Link>
-                    ))}
+                    <ProductItem key={elem.id} elem={elem} />))}
          </div>
     )
 }

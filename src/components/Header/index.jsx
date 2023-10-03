@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom'
 import s from './Header.module.css'
 import SaleBanner from './SalesBanner'
+import { useSelector } from 'react-redux'
+import { selectCartItemCount } from '../../store/cartReducer'
 
 
 function Header(){
@@ -11,6 +13,7 @@ function Header(){
     //   onClick={toggleNavbar}
     const location = useLocation()
     const isHomePage = location.pathname === '/'
+    const cartItemCount = useSelector(selectCartItemCount)
     return(
         <nav>
             <div className={s.navContainer}>
@@ -44,7 +47,7 @@ function Header(){
                     <Link to={'/cart'}>
                         <div className={s.cartBtn}>
                             <img className={s.cartIcon} src="./assets/shopping_cart.png" alt="cart" />
-                            <span className={s.cartProductCount}>3</span>
+                            <span className={s.cartProductCount}>{cartItemCount}</span>
                         </div>
                     </Link>
                 </div>

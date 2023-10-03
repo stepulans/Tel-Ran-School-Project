@@ -1,4 +1,8 @@
+import { useDispatch } from 'react-redux';
 import s from './ProductItem.module.css'
+import { addToCartAction } from '../../store/cartReducer';
+import { Link } from 'react-router-dom';
+
 
 function ProductItem({elem}){
     const baseUrl = "http://localhost:3333"
@@ -8,11 +12,18 @@ function ProductItem({elem}){
     ? Math.round(((elem.price - elem.discont_price) / elem.price) * 100 * 100) / 100
     : null;
 
+    const dispatch = useDispatch()
+
+    const handleAddToCart = (e) => {
+        e.preventDefault()
+        dispatch(addToCartAction(elem.id, elem))
+    }
     return (
+        <Link key={elem.id} to={`/productdetails/${elem.id}`}>
         <div className={s.productItem}>
             <div className={s.productImgContainer}>
                 <img className={s.productItemImg} src={imageURL} alt="product-img" />
-                <button className={s.productBtn}>Add to cart</button>
+                <button onClick={handleAddToCart} className={s.productBtn}>Add to cart</button>
             </div>
             
             <div className={s.priceDiv}>
@@ -30,6 +41,7 @@ function ProductItem({elem}){
             </div>
             <p className={s.productItemTitle}>{elem.title}</p>
         </div>
+        </Link>
     );
 }
 export default ProductItem
