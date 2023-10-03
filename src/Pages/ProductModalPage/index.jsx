@@ -1,11 +1,12 @@
+
 import s from './ProductModalPage.module.css'
 import ProductList from '../../components/ProductList'
 import { useLocation} from 'react-router-dom';
 import { useState } from 'react';
 function ProductModal({pageTitle}){
     let title;
-    if (pageTitle === 'All Sales') {
-        title = 'All Sales';
+    if (pageTitle === 'Products with sale') {
+        title = 'Products with sale';
     } else if (pageTitle === 'All Products') {
         title = 'All Products';
     } else {
@@ -19,7 +20,7 @@ function ProductModal({pageTitle}){
     { value: 'name-asc', label: 'Name (A to Z)' },
     { value: 'name-desc', label: 'Name (Z to A)' },
     { value: 'date-asc', label: 'Date (Old to New)' },
-    { value: 'date-desc', label: 'Date (New to Old)' },
+    { value: 'date-desc', label: 'Date (New to Old)' }
   ];
 
   const location = useLocation()

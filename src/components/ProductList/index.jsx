@@ -45,6 +45,7 @@ function ProductList({showDiscounted, minPrice, maxPrice, sortOption}){
         } else if (sortOption === 'date-desc') {
           return new Date(b.createdAt) - new Date(a.createdAt);
         }
+        
         return 0;
       };
 

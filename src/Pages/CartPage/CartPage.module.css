@@ -158,3 +158,9 @@
     letter-spacing: 0.84px;
     border: none;
 }
+.emptyCartP{
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 16px;
+}

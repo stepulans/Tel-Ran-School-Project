@@ -2,6 +2,7 @@
 import s from './CategoryItem.module.css'
 
 function CategoryItem({elem}){
+   
     const baseURL = "http://localhost:3333";
     const imageURL = baseURL + elem.image;
     return(
