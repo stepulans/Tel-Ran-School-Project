@@ -19,12 +19,12 @@ function CategoryList(){
         <div className={s.categoryListContainer}>
             {!isCategories
                 ? categoryList.slice(0, 4).map(elem => (
-                <Link key={elem.id} to={`/category/${elem.id}`}>
+                <Link key={elem.id} to={`/categories/${elem.id}`}>
                     <CategoryItem key={elem.id} elem={elem} />
                 </Link>
                 ))
             : categoryList.map(elem => (
-                <Link key={elem.id} to={`/category/${elem.id}`}>
+                <Link key={elem.id} to={`/categories/${elem.id}`}>
                     <CategoryItem key={elem.id} elem={elem} />
                 </Link>
                 ))}

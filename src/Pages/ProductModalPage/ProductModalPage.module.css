@@ -61,10 +61,39 @@ option{
     gap: 39px;
     align-items: center;
 }
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
 .checkBox{
+    opacity: 0;
+}
+.customCheckbox {
     width: 40px;
     height: 40px;
+    border: 1px solid #000;
+    border-radius: 7px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
 }
+.customCheckbox::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: #393;;
+    border-radius: 7px;
+    display: block;
+    margin: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.checkboxLabel input:checked + .customCheckbox::after {
+    opacity: 1;
+}
+  
 .modalPageFiltrationSorted{
     display: flex;
     gap: 42px;
