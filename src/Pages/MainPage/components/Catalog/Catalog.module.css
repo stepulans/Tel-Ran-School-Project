@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 20px;
     margin: 0 auto;
+    padding-left: 31px;
 }
 .catalogInfo{
     display: flex;
@@ -27,4 +28,14 @@
     background: none;
     border: 2px solid rgba(139, 139, 139, 1);
     cursor: pointer;
+}
+@media screen and (max-width: 390px){
+    .catalogInfo{
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .catalogH2{
+        font-size: 28px;
+    }
 }

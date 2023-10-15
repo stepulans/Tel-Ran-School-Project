@@ -102,3 +102,28 @@ option{
 .modalPageFiltrationSorted input{
     width: 219px;
 }
+@media screen and (max-width: 740px){
+    .modalPageFiltration{
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+@media screen and (max-width: 390px){
+    .modalPageTitle{
+        font-size: 26px;
+    }
+    .modalPageFiltration{
+        gap: 15px;
+    }
+    label{
+        font-size: 18px;
+    }
+    .modalPageFiltrationSorted{
+        gap: 20px;
+    }
+    select{
+        width: 200px;
+    }
+}

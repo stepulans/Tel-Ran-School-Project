@@ -15,3 +15,11 @@
     font-weight: 700;
     letter-spacing: 1.2px;
 }
+@media screen and (max-width: 390px){
+    .categoriesPageTitle{
+        font-size: 26px;
+    }
+    .categoriesPageContainer{
+        gap: 40px;
+    }
+}

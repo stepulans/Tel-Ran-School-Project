@@ -5,8 +5,8 @@ function Footer(){
         <div className={s.footer}>
             <div className={s.infoArea}>
                 <div className={s.contact}>
-                    <h3>Contact</h3>
-                    <h2>+49 999 999 99 99</h2>
+                    <h2>Contact</h2>
+                    <h3>+49 999 999 99 99</h3>
                     <div className={s.socNetIcons}>
                         <div className={s.insta}>
                             <a href="https://www.instagram.com/startainstitute/"><img src="./assets/instagram.png" alt="insta" /></a>

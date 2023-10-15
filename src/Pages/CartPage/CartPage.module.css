@@ -31,7 +31,7 @@
     display: flex;
     align-items: flex-start;
     gap: 60px;
-
+    flex-wrap: wrap;
 }
 .cartItemContainer{
     display: flex;
@@ -163,4 +163,76 @@
     font-weight: 700;
     letter-spacing: 1.2px;
     margin-bottom: 16px;
+}
+
+@media screen and (max-width: 740px){
+    .backToStore{
+        max-width: 660px;
+    }
+    .cartItemContainer{
+        max-width: 650px;
+    }
+    .cart{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .cartH2{
+        font-size: 26px;
+    }
+    .backToStore{
+        max-width: 320px;
+    }
+    .cartItemContainer{
+        margin-top: 10px;
+    }
+    .cartItem{
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+    .cart{
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
+    }
+    .cartItemInfo{
+        max-width: 300px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .actualPrice{
+        font-size: 30px;
+    }
+    .priceWithoutDiscount{
+        font-size: 18px;
+    }
+    .orderDetails{
+        gap: 20px;
+        max-width: 300px;   
+    }
+    .orderDetailsH3{
+        font-size: 25px;
+    }
+    .orderDetailsSumm{
+        justify-content: center;
+        gap: 100px;
+    }
+    .orderDetailsSummP{
+        font-size: 20px;
+    }
+    .orderDetailsSummH3{
+        font-size: 30px;
+    }
+    .orderBtn{
+        padding: 20px 100px;
+    }
+    .emptyCartP{
+        font-size: 20px;
+        margin-top: 20px;
+    }
 }

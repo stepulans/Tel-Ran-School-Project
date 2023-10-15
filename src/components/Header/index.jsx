@@ -3,14 +3,14 @@ import s from './Header.module.css'
 import SaleBanner from './SalesBanner'
 import { useSelector } from 'react-redux'
 import { selectCartItemCount } from '../../store/cartReducer'
+import { useState } from 'react'
 
 
 function Header(){
-    // ${navbarOpen ? s.open : ''}`
-    // const toggleNavbar = () => {
-    //     setNavbarOpen(!navbarOpen);
-    //   };
-    //   onClick={toggleNavbar}
+    const toggleNavbar = () => {
+        setNavbarOpen(!navbarOpen);
+    };
+    const [navbarOpen, setNavbarOpen] = useState(false);
     const location = useLocation()
     const isHomePage = location.pathname === '/'
     const cartItemCount = useSelector(selectCartItemCount)
@@ -30,14 +30,14 @@ function Header(){
                         <Link to={'/allSales'}><li>All sales</li></Link>
                     </ul>
                     
-                    <div className={s.navbar_mobile}>
+                    <div className={s.navbar_mobile} onClick={toggleNavbar}>
                         <div className={s.navbar_togle}>
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
                         
-                        <ul className={`${s.navbar}`}>
+                        <ul className={`${s.navbar} ${navbarOpen ? s.open : ''}` }>
                             <Link to={'/'}><li>Main Page</li></Link>
                             <Link to={'/allProducts'}><li>All products</li></Link>
                             <Link to={'/allSales'}><li>All sales</li></Link>

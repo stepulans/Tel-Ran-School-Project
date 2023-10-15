@@ -81,7 +81,6 @@ function CartPage() {
     return totalPrice.toFixed(2) + '$';
   };
 
-  // Check if the cart is empty
   const isCartEmpty = Object.keys(cart).length === 0;
 
   return (

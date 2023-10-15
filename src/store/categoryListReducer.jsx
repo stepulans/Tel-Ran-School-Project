@@ -14,7 +14,4 @@ export default createReducer(defaultState, (builder) => {
         .addCase(CATALOG_LIST, (state) => {
             return state.slice(0, 4);
         })
-        .addCase(GET_ONE_PRODUCT_FROM_CATEGORY, (state, action) =>{
-            return {...state, category: action.payload}
-        })
 })

@@ -11,3 +11,8 @@
     line-height: 130%;
     letter-spacing: 1.2px;
 }
+@media screen and (max-width: 390px){
+    .homePageSaleH2{
+        font-size: 28px;
+    }
+}

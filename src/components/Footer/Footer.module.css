@@ -15,12 +15,12 @@
     flex-direction: column;
     gap: 25px;
 }
-.contact h3{
+.contact h2{
     font-size: 40px;
     font-weight: 700;
     line-height: 130%;
 }
-.contact h2{
+.contact h3{
     font-size: 70px;
     font-weight: 600;
     line-height: 130%;
@@ -66,4 +66,22 @@ label{
 .address h5{
     font-size: 24px;
     font-weight: 600;
+}
+@media screen and (max-width: 390px){
+    .infoArea{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .contact h2{
+        font-size: 28px;
+    }
+    .contact h3{
+        font-size: 24px;
+    }
+    .address h3{
+        font-size: 28px;
+    }
+    .address a{
+        font-size: 24px;
+    }
 }

@@ -62,3 +62,40 @@
     letter-spacing: 0.9px;
     cursor: pointer;
 }
+@media screen and (max-width: 740px){
+    .discountBannerH2{
+        font-size: 70px;
+    }
+    .discountBannerForm{
+        padding-right: 10px;
+    }
+}
+@media screen and (max-width: 390px){
+    .discountBanner{
+        flex-direction: column;
+    }
+    .dwarfImg{
+        width: 300px;
+        height: 300px;
+    }
+    .discountBannerInfo{
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+    .discountBannerH2{
+    font-size: 28px;
+    }
+    .discountBannerH3{
+        font-size: 20px;
+    }
+    .discountBannerForm{
+        gap: 15px;
+    }
+    .discountBannerInput{
+        height: 50px;
+    }
+    .discountBannerBtn{
+        height: 50px;
+        font-size: 20px;
+    }
+}   

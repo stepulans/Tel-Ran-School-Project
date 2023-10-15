@@ -83,8 +83,8 @@ function ProductModal(){
                     <option key={option.value} value={option.value}>
                     {option.label}
                     </option>
-          ))}
-        </select>
+                        ))}
+                    </select>
                 </div>
             </div>
                 <ProductList
