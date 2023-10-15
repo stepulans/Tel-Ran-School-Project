@@ -4,7 +4,6 @@ const defaultState = []
 
 export const ADD_CATALOG_LIST = createAction('ADD_CATALOG_LIST')
 export const CATALOG_LIST = createAction('CATALOG_LIST');
-export const GET_ONE_PRODUCT_FROM_CATEGORY = createAction('GET_ONE_PRODUCT_FROM_CATEGORY')
 
 export default createReducer(defaultState, (builder) => {
     builder
