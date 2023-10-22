@@ -28,10 +28,10 @@ function ProductItem({elem}){
             
             <div className={s.priceDiv}>
                 {elem.discont_price && (
-                    <p className={s.actualPrice}>{elem.discont_price}$</p>
+                    <p className={s.actualPrice}>{elem.discont_price}<span className={s.symbol}>$</span></p>
                 )}
                 {(!elem.discont_price && elem.price) ? (
-                    <p className={s.actualPrice}>{elem.price}$</p>
+                    <p className={s.actualPrice}>{elem.price}<span className={s.symbol}>$</span></p>
                 ) : (
                     <p className={s.priceWithoutDiscount}>{elem.price}$</p>
                 )}

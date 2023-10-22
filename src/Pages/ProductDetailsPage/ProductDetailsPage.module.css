@@ -89,6 +89,9 @@
     letter-spacing: 0.6px;
     width: 412px;
 }
+.symbol{
+    font-size: 20px;
+}
 
 @media screen and (max-width: 740px){
 

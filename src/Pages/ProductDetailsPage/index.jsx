@@ -28,10 +28,10 @@ function ProductDetailsPage(){
                 <div className={s.productDetailsInfo}>
                     <div className={s.productDetailsPrice}>
                         {product.discont_price && (
-                            <p className={s.actualPrice}>{product.discont_price}$</p>
+                            <p className={s.actualPrice}>{product.discont_price}<span className={s.symbol}>$</span></p>
                         )}
                         {(!product.discont_price && product.price) ? (
-                            <p className={s.actualPrice}>{product.price}$</p>
+                            <p className={s.actualPrice}>{product.price}<span className={s.symbol}>$</span></p>
                         ) : (
                         <p className={s.priceWithoutDiscount}>{product.price}$</p>
                         )}

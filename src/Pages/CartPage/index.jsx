@@ -78,7 +78,7 @@ function CartPage() {
       totalPrice += price * item.count;
     });
 
-    return totalPrice.toFixed(2) + '$';
+    return totalPrice.toFixed(2);
   };
 
   const isCartEmpty = Object.keys(cart).length === 0;
@@ -105,10 +105,10 @@ function CartPage() {
                     </div>
                     <div className={s.cartItemPrice}>
                       {cart[id].product.discont_price && (
-                        <p className={s.actualPrice}>{cart[id].product.discont_price}$</p>)
+                        <p className={s.actualPrice}>{cart[id].product.discont_price}<span className={s.symbol}>$</span></p>)
                       }
                       {(!cart[id].product.discont_price && cart[id].product.price) ? (
-                        <p className={s.actualPrice}>{cart[id].product.price}$</p>
+                        <p className={s.actualPrice}>{cart[id].product.price}<span className={s.symbol}>$</span></p>
                       ) : (
                         <p className={s.priceWithoutDiscount}>{cart[id].product.price}$</p>)
                       }
@@ -128,7 +128,7 @@ function CartPage() {
             <h3 className={s.orderDetailsH3}>Order details</h3>
             <div className={s.orderDetailsSumm}>
               <p className={s.orderDetailsSummP}>Total</p>
-              <h3 className={s.orderDetailsSummH3}>{calculateTotalPrice()}</h3>
+              <h3 className={s.orderDetailsSummH3}>{calculateTotalPrice()}<span className={s.orderSymbol}>$</span></h3>
             </div>
             <form className={s.orderDetailsForm} onSubmit={handleFormSubmit}>
               <input type="text"
