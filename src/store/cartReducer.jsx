@@ -1,86 +1,98 @@
-
 export const cartActionTypes = {
-    ADD_TO_CART: 'ADD_TO_CART',
-    REMOVE_FROM_CART: 'REMOVE_FROM_CART',
-    INSTANT_REMOVE_FROM_CART: 'INSTANT_REMOVE_FROM_CART'
-}
+  ADD_TO_CART: 'ADD_TO_CART',
+  REMOVE_FROM_CART: 'REMOVE_FROM_CART',
+  INSTANT_REMOVE_FROM_CART: 'INSTANT_REMOVE_FROM_CART'
+};
+
 function loadCartFromLocalStorage() {
   try {
     const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : {};
+    if (savedCart) {
+      return JSON.parse(savedCart);
+    } else {
+      return [];
+    }
   } catch (error) {
     console.error('Error parsing cart data from localStorage:', error);
-    return {};
+    return [];
   }
 }
+
+
 export const selectCartItemCount = (state) => {
   const cart = state.cartData;
-  return Object.values(cart).reduce((total, item) => total + item.count, 0);
+  return cart.reduce((total, item) => total + item.count, 0);
 };
 
-let initialCartState = loadCartFromLocalStorage()
+let initialCartState = loadCartFromLocalStorage();
+
+
 export const cartReducer = (state = initialCartState, action) => {
-    switch (action.type) {
-      case cartActionTypes.ADD_TO_CART: {
-        const { id, product } = action.payload;
-        const newState = { ...state };
-        
-        if (newState[id]) {
-          newState[id] = {
-            ...newState[id],
-            count: newState[id].count + 1
-          };
-        } else {
-          newState[id] = { product, count: 1 };
-          
-        }
-        return newState;
+  switch (action.type) {
+    case cartActionTypes.ADD_TO_CART: {
+      const { id, product } = action.payload;
+      const existingItemIndex = state.findIndex((item) => item.id === id);
+
+      if (existingItemIndex !== -1) {
+        return [
+          ...state.slice(0, existingItemIndex),
+          {
+            ...state[existingItemIndex],
+            count: state[existingItemIndex].count + 1,
+          },
+          ...state.slice(existingItemIndex + 1),
+        ];
+      } else {
+        return [...state, { id, product, count: 1 }];
       }
-      case cartActionTypes.REMOVE_FROM_CART: {
-        const { id } = action.payload;
-        const newState = { ...state };
-  
-        if (newState[id].count > 1) {
-          newState[id] = {
-            ...newState[id],
-            count: newState[id].count - 1,
-          };
-        } else {
-          delete newState[id];
-        }
-  
-        return newState;
-      }
-      case cartActionTypes.INSTANT_REMOVE_FROM_CART: {
-        const { id } = action.payload;
-        const newState = { ...state };
-        if (newState[id]) {
-          delete newState[id];
-        }
-        return newState;
-      }
-      default:
-        return state;
     }
-  };
+    
+    case cartActionTypes.REMOVE_FROM_CART: {
+      const { id } = action.payload;
+      const existingItemIndex = state.findIndex((item) => item.id === id);
 
-  export const addToCartAction = (id, product) => {
-    return {
-      type: cartActionTypes.ADD_TO_CART,
-      payload: { id, product },
-    };
-  }
-  
-  export const removeFromCartAction = (id) => {
-    return {
-      type: cartActionTypes.REMOVE_FROM_CART,
-      payload: { id },
-    };
-  }
+      if (existingItemIndex !== -1) {
+        if (state[existingItemIndex].count > 1) {
+          return [
+            ...state.slice(0, existingItemIndex),
+            {
+              ...state[existingItemIndex],
+              count: state[existingItemIndex].count - 1,
+            },
+            ...state.slice(existingItemIndex + 1),
+          ];
+        } else {
+          return [
+            ...state.slice(0, existingItemIndex),
+            ...state.slice(existingItemIndex + 1),
+          ];
+        }
+      }
+      return state;
+    }
+    
+    case cartActionTypes.INSTANT_REMOVE_FROM_CART: {
+      const { id } = action.payload;
+      return state.filter((item) => item.id !== id);
+    }
 
-  export const instantRemoveFromCartAction = (id) => {
-    return {
-      type: cartActionTypes.INSTANT_REMOVE_FROM_CART,
-      payload: { id },
-    };
-  };
+    default:
+      return state;
+  }
+};
+
+
+export const addToCartAction = (id, product) => ({
+  type: cartActionTypes.ADD_TO_CART,
+  payload: { id, product },
+});
+
+export const removeFromCartAction = (id) => ({
+  type: cartActionTypes.REMOVE_FROM_CART,
+  payload: { id },
+});
+
+export const instantRemoveFromCartAction = (id) => ({
+  type: cartActionTypes.INSTANT_REMOVE_FROM_CART,
+  payload: { id },
+});

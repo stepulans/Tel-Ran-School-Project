@@ -1,4 +1,4 @@
-import { ADD_CATALOG_LIST, GET_ONE_PRODUCT_FROM_CATEGORY } from "../store/categoryListReducer"
+import { ADD_CATALOG_LIST} from "../store/categoryListReducer"
 
 
 export function fetchCategory(){

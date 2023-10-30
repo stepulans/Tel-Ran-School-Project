@@ -22,7 +22,7 @@ function ProductItem({elem}){
         <Link key={elem.id} to={`/productdetails/${elem.id}`}>
         <div className={s.productItem}>
             <div className={s.productImgContainer}>
-                <img className={s.productItemImg} src={imageURL} alt="product-img" />
+                <img className={s.productItemImg} src={imageURL} alt={elem.title} />
                 <button onClick={handleAddToCart} className={s.productBtn}>Add to cart</button>
             </div>
             

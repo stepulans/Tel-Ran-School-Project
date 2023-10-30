@@ -1,35 +1,18 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import s from './CartPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { addToCartAction, removeFromCartAction, instantRemoveFromCartAction } from '../../store/cartReducer';
 
+import CartItem from '../../components/CartItem';
 function CartPage() {
   const cart = useSelector((state) => state.cartData);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const baseUrl = "http://localhost:3333";
+  
 
   const handleStepBack = () => {
     navigate(-1);
   }
-
-  const handlePlusClick = (id) => {
-    dispatch(addToCartAction(id, cart[id].product));
-  };
-
-  const handleMinusClick = (id) => {
-    if (cart[id].count > 1) {
-      dispatch(removeFromCartAction(id));
-    } else {
-      dispatch(instantRemoveFromCartAction(id));
-    }
-  };
-
-  const handleRemoveClick = (id) => {
-    dispatch(instantRemoveFromCartAction(id));
-  };
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -70,19 +53,20 @@ function CartPage() {
   };
 
   const calculateTotalPrice = () => {
-    let totalPrice = 0;
+    if (cart && cart.length > 0) {
+      let totalPrice = 0;
 
-    Object.keys(cart).forEach((id) => {
-      const item = cart[id];
-      const price = item.product.discont_price || item.product.price;
-      totalPrice += price * item.count;
-    });
+      cart.forEach((item) => {
+        const price = item.product.discont_price || item.product.price;
+        totalPrice += price * item.count;
+      });
 
-    return totalPrice.toFixed(2);
+      return totalPrice.toFixed(2);
+    } else {
+      return "0.00";
+    }
   };
-
-  const isCartEmpty = Object.keys(cart).length === 0;
-
+  const isCartEmpty = cart.length === 0;
   return (
     <div className={s.cartPage}>
       <h2 className={s.cartH2}>Shopping cart</h2>
@@ -93,36 +77,12 @@ function CartPage() {
       {isCartEmpty ? <p className={s.emptyCartP}>Your cart is empty</p> : (
         <div className={s.cart}>
           <div className={s.cartItemContainer}>
-            {cart && Object.keys(cart).map((id) => {
-              const imageURL = baseUrl + cart[id].product.image;
-              return (
-                <div key={id} className={s.cartItem}>
-                  <img src={imageURL} alt="cartItemImg" className={s.cartItemImg} />
-                  <div className={s.cartItemInfo}>
-                    <div className={s.cartItemTop}>
-                      <h3 className={s.cartItemTopH3}>{cart[id].product.title}</h3>
-                      <img className={s.cartItemTopX} src="./assets/x.png" alt="x" onClick={() => handleRemoveClick(id)} />
-                    </div>
-                    <div className={s.cartItemPrice}>
-                      {cart[id].product.discont_price && (
-                        <p className={s.actualPrice}>{cart[id].product.discont_price}<span className={s.symbol}>$</span></p>)
-                      }
-                      {(!cart[id].product.discont_price && cart[id].product.price) ? (
-                        <p className={s.actualPrice}>{cart[id].product.price}<span className={s.symbol}>$</span></p>
-                      ) : (
-                        <p className={s.priceWithoutDiscount}>{cart[id].product.price}$</p>)
-                      }
-                    </div>
-                    <div className={s.cartItemBtns}>
-                      <div className={s.cartItemBtnsContainer}>
-                        <img className={s.cartItemBtn} src="./assets/minus.png" alt="minus" onClick={() => handleMinusClick(id)} />
-                        <p className={s.cartItemBtnsP}>{cart[id].count}</p>
-                        <img className={s.cartItemBtn} src="./assets/plus.png" alt="plus" onClick={() => handlePlusClick(id)} />
-                      </div>
-                    </div>
-                  </div>
-                </div>)
-            })}
+          {cart.map((item, index) => (
+              <CartItem
+                key={index}
+                item={item}
+              />
+            ))}
           </div>
           <div className={s.orderDetails}>
             <h3 className={s.orderDetailsH3}>Order details</h3>
