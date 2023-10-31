@@ -71,8 +71,8 @@ function CartPage() {
     <div className={s.cartPage}>
       <h2 className={s.cartH2}>Shopping cart</h2>
         <div className={s.backToStore}>
-          <p className={s.backToStoreP}>Back to Store</p>
-          <img onClick={handleStepBack} src="./assets/forward.png" alt="" className={s.forward} />
+          <p onClick={handleStepBack} className={s.backToStoreP}>Back to Store</p>
+          <img src="./assets/forward.png" alt="" className={s.forward} />
         </div>
       {isCartEmpty ? <p className={s.emptyCartP}>Your cart is empty</p> : (
         <div className={s.cart}>

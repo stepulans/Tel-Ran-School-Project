@@ -54,6 +54,11 @@ nav{
     cursor: pointer;
     list-style: none;
 }
+.navbar_links li:hover{
+    color: #393;
+    text-decoration: underline;
+    transition: ;
+}
 .catalogBtn{
     padding: 15px 30px;
     border: 2px solid #393;
@@ -115,7 +120,10 @@ nav{
     background-color: #393;
     position: relative;
 }
-
+.navbar_links li.activeLink{
+    color: #393;
+    text-decoration: underline;
+}
 
 @media screen and (max-width: 740px){
     .logoDiv{

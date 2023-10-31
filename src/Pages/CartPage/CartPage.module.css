@@ -23,9 +23,11 @@
 .backToStoreP{
     font-size: 20px;
     font-weight: 500;
-}
-.forward{
     cursor: pointer;
+}
+.backToStoreP:hover{
+    color: #393;
+    text-decoration: underline;
 }
 .cart{
     display: flex;
