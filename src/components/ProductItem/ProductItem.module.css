@@ -23,7 +23,7 @@
     padding: 25px 88px;
     height: 72px;
     position: absolute;
-    bottom: 32px;
+    bottom: 10px;
     left: 10px;
     display: none;
     cursor: pointer;
@@ -34,8 +34,7 @@
 .priceDiv{
     display: flex;
     align-items: center;
-    gap: 43px;
-    margin-left: 26px;
+    justify-content: space-around;
 }
 .actualPrice{
     font-size: 30px;
@@ -65,4 +64,7 @@
 }
 .symbol{
     font-size: 20px;
+}
+.productItem:hover .productItemTitle{
+    color: #393;
 }

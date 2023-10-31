@@ -1,19 +1,21 @@
 import Map from '../Map'
 import s from './Footer.module.css'
+import {ReactComponent as WhatsAppIcon} from '../../assets/whatsApp.svg'
+import { ReactComponent as InstagramIcon } from '../../assets/instagram.svg'
 function Footer(){
     return(
         <div className={s.footer}>
             <div className={s.infoArea}>
                 <div className={s.contact}>
                     <h2>Contact</h2>
-                    <h3>+49 999 999 99 99</h3>
+                    <h3><a href="tel:+491717788661">+49 171 778 86 61</a></h3>
                     <div className={s.socNetIcons}>
                         <div className={s.insta}>
-                            <a href="https://www.instagram.com/startainstitute/"><img src="./assets/instagram.png" alt="insta" /></a>
+                            <a href="https://www.instagram.com/startainstitute/"><InstagramIcon/></a>
                             <label>Instagram</label>
                         </div>
                         <div className={s.whatsapp}>
-                            <a href="#"><img src="./assets/whatsapp.png" alt="whatsapp" /></a>
+                            <a href="https://www.whatsapp.com/"><WhatsAppIcon/></a>
                             <label>WhatsApp</label>
                         </div>
                     </div>

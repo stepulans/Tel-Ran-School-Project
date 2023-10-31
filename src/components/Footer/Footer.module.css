@@ -25,6 +25,9 @@
     font-weight: 600;
     line-height: 130%;
 }
+.contact a:hover{
+    color: #393;
+}
 .socNetIcons{
     display: flex;
     gap: 34px;
@@ -34,12 +37,23 @@
     flex-direction: column;
     align-items: center;
 }
-
+.insta:hover{
+    color: #393;
+}
+.insta:hover path{
+    fill: #393;
+}
 .whatsapp{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.whatsapp:hover{
+    color: #393;
+}
+.whatsapp:hover path{
+    fill: #393;
+  }
 label{
     font-size: 15px;
     font-weight: 600;
@@ -62,6 +76,9 @@ label{
     text-decoration: underline;
     padding-top: 5px;
     max-width: 564px;
+}
+.address a:hover{
+    color: #393;
 }
 .address h5{
     font-size: 24px;

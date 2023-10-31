@@ -1,7 +1,8 @@
 export const cartActionTypes = {
   ADD_TO_CART: 'ADD_TO_CART',
   REMOVE_FROM_CART: 'REMOVE_FROM_CART',
-  INSTANT_REMOVE_FROM_CART: 'INSTANT_REMOVE_FROM_CART'
+  INSTANT_REMOVE_FROM_CART: 'INSTANT_REMOVE_FROM_CART',
+  EMPTY_CART: 'EMPTY_CART'
 };
 
 function loadCartFromLocalStorage() {
@@ -76,6 +77,9 @@ export const cartReducer = (state = initialCartState, action) => {
       return state.filter((item) => item.id !== id);
     }
 
+    case cartActionTypes.EMPTY_CART: {
+      return []
+    }
     default:
       return state;
   }
@@ -95,4 +99,8 @@ export const removeFromCartAction = (id) => ({
 export const instantRemoveFromCartAction = (id) => ({
   type: cartActionTypes.INSTANT_REMOVE_FROM_CART,
   payload: { id },
+});
+
+export const emptyCartAction = () => ({
+  type: cartActionTypes.EMPTY_CART,
 });

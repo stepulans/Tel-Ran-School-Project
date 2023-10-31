@@ -18,11 +18,17 @@ function ProductItem({elem}){
         e.preventDefault()
         dispatch(addToCartAction(elem.id, elem))
     }
+    const divStyle = {
+        backgroundImage: `url(${imageURL})`,
+        backgroundSize: '100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center'
+    }
     return (
         <Link key={elem.id} to={`/productdetails/${elem.id}`}>
         <div className={s.productItem}>
             <div className={s.productImgContainer}>
-                <img className={s.productItemImg} src={imageURL} alt={elem.title} />
+                <div style={divStyle} className={s.productItemImg} alt={elem.title}></div>
                 <button onClick={handleAddToCart} className={s.productBtn}>Add to cart</button>
             </div>
             

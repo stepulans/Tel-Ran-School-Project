@@ -4,7 +4,8 @@ import SaleBanner from './SalesBanner'
 import { useSelector } from 'react-redux'
 import { selectCartItemCount } from '../../store/cartReducer'
 import { useState } from 'react'
-
+import {ReactComponent as CartIcon} from '../../assets/cartIcon.svg'
+import {ReactComponent as Logo} from '../../assets/logo.svg'
 
 function Header(){
     const toggleNavbar = () => {
@@ -19,7 +20,7 @@ function Header(){
         <nav>
             <div className={s.navContainer}>
                 <div className={s.logoDiv}>
-                    <Link to={'/'}><img className={s.logoIcon} src="./assets/logo.png" alt="logo" /></Link>
+                    <Link to={'/'}><Logo/></Link>
                     <Link to={'/categories'}><button className={s.catalogBtn}>Catalog</button></Link>
                     
                 </div>
@@ -54,7 +55,7 @@ function Header(){
                     
                     <Link to={'/cart'}>
                         <div className={s.cartBtn}>
-                            <img className={s.cartIcon} src="./assets/shopping_cart.png" alt="cart" />
+                            <CartIcon/>
                             <span className={s.cartProductCount}>{cartItemCount}</span>
                         </div>
                     </Link>

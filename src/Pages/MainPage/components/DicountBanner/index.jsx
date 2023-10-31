@@ -7,16 +7,17 @@ function DiscountBanner() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+  
     if (!phone.match(numbersOnly)) {
-      console.error('Phone number should contain numbers only.');
+      alert('Phone number should contain numbers only.');
       return;
     }
-
+  
     if (phone.length !== 11) {
-      console.error('Phone number should be 11 digits long.');
+      alert('Phone number should be 11 digits long.');
       return;
     }
+  
     const apiUrl = 'http://localhost:3333/sale/send';
     try {
       const response = await fetch(apiUrl, {
@@ -28,8 +29,10 @@ function DiscountBanner() {
       });
       if (response.ok) {
         console.log('Coupon request sent successfully.');
+        setPhone('');
       } else {
         console.error('Error sending the coupon request.');
+        alert("Something went wrong. Please try latter")
       }
     } catch (error) {
       console.error('Request error:', error);

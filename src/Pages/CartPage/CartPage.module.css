@@ -74,6 +74,11 @@
     flex-direction: column;
     gap: 25px;
 }
+.orderInput{
+    height: 73px;
+    border-radius: 20px;
+    padding: 25px 25px 25px;
+}
 .orderBtn{
     padding: 20px 185px 20px 143px;
     border-radius: 17px;
@@ -83,6 +88,7 @@
     font-size: 28px;
     letter-spacing: 0.84px;
     border: none;
+    cursor: pointer;
 }
 .emptyCartP{
     font-size: 40px;

@@ -13,9 +13,8 @@ nav{
     height: 72px;
     cursor: pointer;
 }
-.cartIcon{
-    height: 30px;
-    width: 30px;
+.cartBtn:hover path{
+    fill: #393;
 }
 .navbar{
     gap: 15px;
@@ -89,10 +88,10 @@ nav{
     color: white;
     background-color: #393;
     position: absolute;
-    right: -5px;
-    top: 0;
-    width: 18px;
-    height: 18px;
+    right: -15px;
+    top: -5px;
+    width: 25px;
+    height: 25px;
 }
 .navbar_right{
     display: flex;
