@@ -1,25 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import s from './ProductDetailsPage.module.css'
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCartAction } from '../../store/cartReducer';
+import { fetchProductItem } from '../../asyncActions/product';
 
 function ProductDetailsPage(){
     const {id} = useParams()
-    const [product, setProduct] = useState({})
+    const product = useSelector(store => store.productList)
+    const dispatch = useDispatch()
+
     useEffect(() => {
-        fetch(`http://localhost:3333/products/${id}`)
-          .then((res) => res.json())
-          .then((data) => {
-              setProduct(data[0])})
-    }, [id]);
+        dispatch(fetchProductItem(id))
+    }, [ product, id]);
     const baseUrl = "http://localhost:3333"
     const imageURL = baseUrl + product.image
 
     const discount = product.discont_price && product.price
     ? Math.round(((product.price - product.discont_price) / product.price) * 100 * 100) / 100
     : null;
-    const dispatch = useDispatch()
     return(
         <div className={s.productDetails}>
             <h2 className={s.productDetailsTitle}>{product.title}</h2>

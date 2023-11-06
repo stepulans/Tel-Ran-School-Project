@@ -19,7 +19,7 @@ function ProductModal(){
                 setCategoryProducts(data.data)})
     }, [id])
     
-    const pageTitle = (pageType) => {
+    const pageTitle = () => {
         if (isAllSalesPage){
            return 'Products with sale'
         } else if (AllProductsPage){

@@ -75,7 +75,9 @@ function ProductList({showDiscounted, minPrice, maxPrice, sortOption, categoryPr
   filteredCategoryProducts = filteredCategoryProducts.filter((elem) => filterProductsByPrice(elem));
   filteredCategoryProducts.sort(sortProducts);
 
-
+  if(!Array.isArray(productList)){
+    return null
+  }
     const filteredProducts = showDiscounted
       ? productList.filter(
           (elem) => elem.discont_price && filterProductsByPrice(elem)

@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_LIST, ADD_DISCOUNTED_PRODUCTS} from "../store/productListReducer"
+import { ADD_PRODUCT_LIST, ADD_DISCOUNTED_PRODUCTS, PRODUCT_ITEM} from "../store/productListReducer"
 
 
 export function fetchProducts(){
@@ -19,3 +19,12 @@ export function fetchDiscountedProducts() {
         });
     }
   }
+
+export const fetchProductItem = (id) => {
+  return function(dispatch){
+    fetch(`http://localhost:3333/products/${id}`)
+          .then((res) => res.json())
+          .then((data) => {
+              dispatch(PRODUCT_ITEM(data[0]))})
+  }
+}
