@@ -9,7 +9,6 @@ function CategoryItem({elem}){
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'
-
     }
     return(
         <div className={s.categoryItem}>

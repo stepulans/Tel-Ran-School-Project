@@ -4,20 +4,16 @@ import s from './DiscountBanner.module.css';
 function DiscountBanner() {
   const [phone, setPhone] = useState('');
   const numbersOnly = /^[0-9]*$/;
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-  
     if (!phone.match(numbersOnly)) {
       alert('Phone number should contain numbers only.');
       return;
     }
-  
     if (phone.length !== 11) {
       alert('Phone number should be 11 digits long.');
       return;
     }
-  
     const apiUrl = 'http://localhost:3333/sale/send';
     try {
       const response = await fetch(apiUrl, {

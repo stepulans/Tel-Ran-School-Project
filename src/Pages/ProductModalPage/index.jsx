@@ -11,14 +11,18 @@ function ProductModal(){
     const CategoryProductPage = location.pathname === `/categories/${id}`
     const [category, setCategory] = useState({})
     const [categoryProducts, setCategoryProducts] = useState({})
-        useEffect(()=>{
+    const [showDiscounted, setShowDiscounted] = useState(false)
+    const [minPrice, setMinPrice] = useState('');
+    const [maxPrice, setMaxPrice] = useState('');
+    const [sortOption, setSortOption] = useState('');
+       
+    useEffect(()=>{
         fetch(`http://localhost:3333/categories/${id}`)
           .then((res) => res.json())
           .then((data) => {
                 setCategory(data.category)
                 setCategoryProducts(data.data)})
     }, [id])
-    
     const pageTitle = () => {
         if (isAllSalesPage){
            return 'Products with sale'
@@ -31,7 +35,6 @@ function ProductModal(){
         }
         return 'Page Title'
     }
-
     const sortingOptions = [
     { value: 'default', label: 'Default' },
     { value: 'price-asc', label: 'Price (Low to High)' },
@@ -43,11 +46,6 @@ function ProductModal(){
     { value: 'discount-asc', label: 'Discount (Low to High)' },
     { value: 'discount-desc', label: 'Discount (High to Low)' },
   ];
-
-  const [showDiscounted, setShowDiscounted] = useState(false)
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
-  const [sortOption, setSortOption] = useState('');
 
     return(
         <div className={s.modalPage}>

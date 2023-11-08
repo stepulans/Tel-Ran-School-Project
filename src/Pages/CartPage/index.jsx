@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from './CartPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
 import CartItem from '../../components/CartItem';
 import { emptyCartAction } from '../../store/cartReducer';
 
@@ -21,20 +20,16 @@ function CartPage() {
 
   const [phone, setPhone] = useState('');
   const numbersOnly = /^[0-9]*$/;
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     if (!phone.match(numbersOnly)) {
       alert('Phone number should contain numbers only.');
       return;
     }
-
     if (phone.length !== 11) {
       alert('Phone number should be 11 digits long.');
       return;
     }
-
     const apiUrl = 'http://localhost:3333/order/send';
     try {
       const response = await fetch(apiUrl, {
@@ -50,7 +45,6 @@ function CartPage() {
           })),
         }),
       });
-
       if (response.ok) {
         console.log('Order request sent successfully.');
         localStorage.removeItem('cart');

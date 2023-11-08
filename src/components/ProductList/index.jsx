@@ -5,7 +5,6 @@ import { fetchDiscountedProducts, fetchProducts } from '../../asyncActions/produ
 import ProductItem from '../ProductItem'
 import { useLocation, } from 'react-router-dom'
 
-
 function ProductList({showDiscounted, minPrice, maxPrice, sortOption, categoryProducts}){
     let productList = useSelector((store) => store.productList)
     const dispatch = useDispatch()
@@ -30,8 +29,6 @@ function ProductList({showDiscounted, minPrice, maxPrice, sortOption, categoryPr
         }
         return true;
       };
-
-      
     const sortProducts = (a, b) => {
       if (sortOption === 'price-asc') {
         return a.price - b.price;
@@ -62,11 +59,9 @@ function ProductList({showDiscounted, minPrice, maxPrice, sortOption, categoryPr
           : 0;
         return discountB - discountA;
       }
-    
       return 0;
     };
-      
-      let filteredCategoryProducts = Array.isArray(categoryProducts) ? categoryProducts : [];
+    let filteredCategoryProducts = Array.isArray(categoryProducts) ? categoryProducts : [];
 
   if (showDiscounted) {
     filteredCategoryProducts = filteredCategoryProducts.filter((elem) => elem.discont_price);

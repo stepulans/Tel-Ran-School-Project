@@ -19,7 +19,6 @@ function loadCartFromLocalStorage() {
   }
 }
 
-
 export const selectCartItemCount = (state) => {
   const cart = state.cartData;
   return cart.reduce((total, item) => total + item.count, 0);
@@ -27,13 +26,11 @@ export const selectCartItemCount = (state) => {
 
 let initialCartState = loadCartFromLocalStorage();
 
-
 export const cartReducer = (state = initialCartState, action) => {
   switch (action.type) {
     case cartActionTypes.ADD_TO_CART: {
       const { id, product } = action.payload;
       const existingItemIndex = state.findIndex((item) => item.id === id);
-
       if (existingItemIndex !== -1) {
         return [
           ...state.slice(0, existingItemIndex),
@@ -47,11 +44,9 @@ export const cartReducer = (state = initialCartState, action) => {
         return [...state, { id, product, count: 1 }];
       }
     }
-    
     case cartActionTypes.REMOVE_FROM_CART: {
       const { id } = action.payload;
       const existingItemIndex = state.findIndex((item) => item.id === id);
-
       if (existingItemIndex !== -1) {
         if (state[existingItemIndex].count > 1) {
           return [
@@ -71,12 +66,10 @@ export const cartReducer = (state = initialCartState, action) => {
       }
       return state;
     }
-    
     case cartActionTypes.INSTANT_REMOVE_FROM_CART: {
       const { id } = action.payload;
       return state.filter((item) => item.id !== id);
     }
-
     case cartActionTypes.EMPTY_CART: {
       return []
     }
@@ -84,7 +77,6 @@ export const cartReducer = (state = initialCartState, action) => {
       return state;
   }
 };
-
 
 export const addToCartAction = (id, product) => ({
   type: cartActionTypes.ADD_TO_CART,
