@@ -6,7 +6,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 28px 100px 28px;
+    padding: 20px 28px 100px 28px;
 }
 .logoIcon{
     width: 72px;
